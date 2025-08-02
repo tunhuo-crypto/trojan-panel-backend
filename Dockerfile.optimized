@@ -59,4 +59,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD wget --no-verbose --tries=1 --spider http://localhost:8080/api/account/getAccountInfo || exit 1
 
 # 启动命令 (这是最关键的修正)
-ENTRYPOINT ["/bin/sh", "-c", "exec ./trojan-panel -host=\"$mariadb_ip\" -port=\"$mariadb_port\" -user=\"$mariadb_user\" -password=\"$mariadb_pas\" -redisHost=\"$redis_host\" -redisPort=\"$redis_port\" -redisPassword=\"$redis_pass\" -serverPort=\"8080\""]
+ENTRYPOINT ["/bin/sh", "-c", "exec ./trojan-panel -host=\"$mariadb_ip\" -port=\"$mariadb_port\" -user=\"$mariadb_user\" -password=\"$mariadb_pas\" -redisHost=\"$redis_host\" -redisPort=\"$redis_port\" -redisPassword=\"$redis_pass\" -serverPort=\"$server_port\""]
