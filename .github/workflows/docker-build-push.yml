@@ -45,7 +45,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: tunhuo-crypto/trojan-panel-backend
+          images: zzsolo/trojan-panel-backend
           tags: |
             type=raw,value=latest
           flavor: |
