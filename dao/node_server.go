@@ -187,7 +187,7 @@ func CountNodeServerByName(id *uint, queryName *string) (int, error) {
 func SelectNodeServerList(ip *string, name *string) ([]model.NodeServer, error) {
 	var nodeServers []model.NodeServer
 	where := map[string]interface{}{
-		"_orderby": "create_time desc"}
+		"_orderby": "name asc"} // <--- 修改为按字母排序
 	if ip != nil && *ip != "" {
 		where["ip like"] = fmt.Sprintf("%%%s%%", *ip)
 	}
