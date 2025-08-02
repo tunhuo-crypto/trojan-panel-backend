@@ -26,4 +26,12 @@ echo "Redis is up - continuing..."
 
 # 启动应用
 echo "Starting Trojan Panel application..."
-exec ./trojan-panel
+exec ./trojan-panel \
+    -host="$mariadb_ip" \
+    -port="$mariadb_port" \
+    -user="$mariadb_user" \
+    -password="$mariadb_pas" \
+    -redisHost="$redis_host" \
+    -redisPort="$redis_port" \
+    -redisPassword="$redis_pass" \
+    -serverPort="$server_port"
