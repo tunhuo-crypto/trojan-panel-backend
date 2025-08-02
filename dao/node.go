@@ -95,7 +95,7 @@ func SelectNodePage(queryName *string, nodeServerId *uint, pageNum *uint, pageSi
 
 	// 分页查询
 	where := map[string]interface{}{
-		"_orderby": "priority desc,create_time desc",
+		"_orderby": "name asc", // <--- 修改为按字母顺序排列
 		"_limit":   []uint{(*pageNum - 1) * *pageSize, *pageSize}}
 	if queryName != nil && *queryName != "" {
 		where["name like"] = fmt.Sprintf("%%%s%%", *queryName)
