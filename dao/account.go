@@ -181,7 +181,7 @@ func SelectAccountPage(
 		where["_orderby"] = orderByStr
 	} else {
 		// 如果前端没有指定排序方式，则默认按创建时间升序排列 (从早到晚)
-		where["_orderby"] = "create_time asc"
+		where["_orderby"] = "create_time desc"
 	}
 	//  ============ 修改结束 ============
 	
