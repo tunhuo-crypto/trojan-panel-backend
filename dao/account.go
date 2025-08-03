@@ -177,6 +177,9 @@ func SelectAccountPage(
 			orderByStr = fmt.Sprintf("%s %s", orderByStr, *orderBy)
 		}
 		where["_orderby"] = orderByStr
+	} else {
+		// 如果前端没有指定排序方式，则默认按创建时间升序排列
+		where["_orderby"] = "create_time asc" 
 	}
 	selectFields := []string{"id", "username", "role_id", "email", "preset_expire", "preset_quota", "last_login_time", "expire_time", "deleted",
 		"quota", "upload", "download", "create_time"}
