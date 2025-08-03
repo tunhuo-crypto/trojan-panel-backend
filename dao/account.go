@@ -171,18 +171,10 @@ func SelectAccountPage(
 			where["last_login_time <>"] = 0
 		}
 	}
-
+	
 	//  ============ 这里是核心修改 ============
-	if orderFields != nil && *orderFields != "" {
-		orderByStr := *orderFields
-		if orderBy != nil && *orderBy != "" {
-			orderByStr = fmt.Sprintf("%s %s", orderByStr, *orderBy)
-		}
-		where["_orderby"] = orderByStr
-	} else {
-		// 如果前端没有指定排序方式，则默认按创建时间升序排列 (从早到晚)
-		where["_orderby"] = "create_time desc"
-	}
+	// 强制排序：无论前端发送什么排序参数，都始终按照创建时间升序排列（从早到晚）
+	where["_orderby"] = "create_time asc"
 	//  ============ 修改结束 ============
 	
 	selectFields := []string{"id", "username", "role_id", "email", "preset_expire", "preset_quota", "last_login_time", "expire_time", "deleted",
